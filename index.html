@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MadMoney — Track Expenses Intelligently</title>
+  <meta name="description" content="MadMoney is a minimal, fast, offline-first Android expense tracking app. Download the APK and take control of your finances." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">M</div>
+      <span class="logo-text">MadMoney</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#download">Download</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-glow"></div>
+  <div class="container hero-inner">
+    <div class="hero-text fade-up">
+      <div class="hero-badge">Android App · Free · Open Source</div>
+      <h1>Track expenses<br /><span class="gradient-text">intelligently.</span></h1>
+      <p class="hero-sub">Minimal. Fast. Offline-first.<br />Take full control of your money — no cloud, no subscriptions.</p>
+      <div class="hero-btns">
+        <a href="#download" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download APK
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View GitHub
+        </a>
+      </div>
+    </div>
+    <div class="hero-phone fade-up delay-2">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="phone-ui">
+            <div class="phone-header">
+              <span class="phone-title">Dashboard</span>
+              <span class="phone-date">May 2026</span>
+            </div>
+            <div class="phone-balance">
+              <div class="balance-label">Total Spent</div>
+              <div class="balance-amount">₹ 12,480</div>
+            </div>
+            <div class="phone-bars">
+              <div class="bar-row"><span>Food</span><div class="bar"><div class="bar-fill" style="width:72%;background:#6366f1"></div></div><span>₹4,200</span></div>
+              <div class="bar-row"><span>Travel</span><div class="bar"><div class="bar-fill" style="width:45%;background:#8b5cf6"></div></div><span>₹2,600</span></div>
+              <div class="bar-row"><span>Shopping</span><div class="bar"><div class="bar-fill" style="width:58%;background:#a78bfa"></div></div><span>₹3,400</span></div>
+              <div class="bar-row"><span>Bills</span><div class="bar"><div class="bar-fill" style="width:38%;background:#c4b5fd"></div></div><span>₹2,280</span></div>
+            </div>
+            <div class="phone-txns">
+              <div class="txn"><div class="txn-dot" style="background:#6366f1"></div><span>Zomato</span><span class="txn-amt">-₹340</span></div>
+              <div class="txn"><div class="txn-dot" style="background:#8b5cf6"></div><span>Uber</span><span class="txn-amt">-₹180</span></div>
+              <div class="txn"><div class="txn-dot" style="background:#a78bfa"></div><span>Amazon</span><span class="txn-amt">-₹1,299</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features-section" id="features">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-badge">Features</div>
+      <h2>Everything you need,<br />nothing you don't.</h2>
+      <p>Built for speed and simplicity. No bloat, no ads, no tracking.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon" style="background:linear-gradient(135deg,#6366f1,#8b5cf6)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Expense Tracking</h3>
+        <p>Log every expense in seconds. Categorize, tag, and annotate with ease.</p>
+      </div>
+      <div class="feature-card fade-up delay-1">
+        <div class="feature-icon" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Analytics & Trends</h3>
+        <p>Visual charts and monthly trends to understand your spending patterns.</p>
+      </div>
+      <div class="feature-card fade-up delay-2">
+        <div class="feature-icon" style="background:linear-gradient(135deg,#a78bfa,#c4b5fd)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3>Calendar View</h3>
+        <p>Browse expenses day by day with an intuitive calendar interface.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon" style="background:linear-gradient(135deg,#06b6d4,#6366f1)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+        </div>
+        <h3>Offline First</h3>
+        <p>All data stored locally on your device. Works without internet, always.</p>
+      </div>
+      <div class="feature-card fade-up delay-1">
+        <div class="feature-icon" style="background:linear-gradient(135deg,#10b981,#06b6d4)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        </div>
+        <h3>Smart Categories</h3>
+        <p>Auto-suggest categories based on your spending history and habits.</p>
+      </div>
+      <div class="feature-card fade-up delay-2">
+        <div class="feature-icon" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Fast UI Performance</h3>
+        <p>Buttery smooth 60fps UI. Instant load, zero lag, optimized for all devices.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="section download-section" id="download">
+  <div class="container">
+    <div class="download-card fade-up">
+      <div class="download-glow"></div>
+      <div class="download-content">
+        <div class="section-badge">Download</div>
+        <h2>Get MadMoney<br />on your Android.</h2>
+        <p>Free forever. No account required. Just download and start tracking.</p>
+        <div class="download-meta">
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Version v1.1.0
+          </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Android 8+
+          </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            18 MB
+          </div>
+        </div>
+        <div class="download-btns">
+          <a href="https://github.com/releases" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download APK
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-ghost">
+            GitHub Releases
+          </a>
+        </div>
+      </div>
+      <div class="install-steps">
+        <h4>Installation Guide</h4>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <strong>Download the APK</strong>
+            <p>Tap the button above to download MadMoney.apk</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <strong>Allow Unknown Sources</strong>
+            <p>Go to Settings → Security → Enable "Install unknown apps"</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <strong>Install & Launch</strong>
+            <p>Open the downloaded file, install, and start tracking!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANGELOG -->
+<section class="section changelog-section" id="changelog">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-badge">Changelog</div>
+      <h2>Actively maintained.</h2>
+      <p>Regular updates, improvements, and new features.</p>
+    </div>
+    <div class="changelog-timeline fade-up">
+      <div class="cl-item">
+        <div class="cl-dot latest"></div>
+        <div class="cl-card">
+          <div class="cl-header">
+            <span class="cl-version">v1.1.0</span>
+            <span class="cl-date">May 2026</span>
+          </div>
+          <ul class="cl-list">
+            <li>Added monthly trends chart</li>
+            <li>Improved calendar performance</li>
+            <li>UI refinements and polish</li>
+            <li>Bug fixes and stability improvements</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-dot"></div>
+        <div class="cl-card">
+          <div class="cl-header">
+            <span class="cl-version">v1.0.0</span>
+            <span class="cl-date">April 2026</span>
+          </div>
+          <ul class="cl-list">
+            <li>Initial release</li>
+            <li>Core expense tracking</li>
+            <li>Analytics dashboard</li>
+            <li>Category management</li>
+            <li>Offline-first architecture</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section class="section feedback-section" id="feedback">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-badge">Feedback</div>
+      <h2>Share your thoughts.</h2>
+      <p>Found a bug? Have a suggestion? We'd love to hear from you.</p>
+    </div>
+    <form class="feedback-form fade-up" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="feedback-row">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email (optional)" />
+      </div>
+      <textarea name="message" placeholder="Write your feedback here..." rows="5" required></textarea>
+      <button type="submit" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Send Feedback
+      </button>
+      <p class="feedback-success" id="feedbackSuccess">✓ Thanks for your feedback!</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">M</div>
+        <span class="logo-text">MadMoney</span>
+      </a>
+      <p>Minimal. Fast. Offline-first expense tracking for Android.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+      <a href="#download">Download</a>
+      <a href="#" onclick="alert('Privacy Policy: This app stores all data locally on your device. No data is collected or transmitted.')">Privacy Policy</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MadMoney · v1.1.0</span>
+      <span>Built with ❤️ for Android</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
