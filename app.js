@@ -11,17 +11,40 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
 // Live APK size, version & downloads from GitHub
-fetch('https://api.github.com/repos/SibamDash/MadMoney/releases/latest')
+fetch('https://api.github.com/repos/SibamDash/MadMoney/releases')
   .then(r => r.json())
-  .then(data => {
-    if (data.tag_name) document.getElementById('apkVersion').textContent = 'Version ' + data.tag_name;
-    const asset = data.assets && data.assets.find(a => a.name.endsWith('.apk'));
-    if (asset) {
-      document.getElementById('apkSize').textContent = (asset.size / 1048576).toFixed(1) + ' MB';
-      const count = asset.download_count;
-      const rounded = Math.floor(count / 10) * 10;
-      document.getElementById('apkDownloads').textContent = (rounded > 0 ? rounded + '+' : count) + ' downloads';
+  .then(releases => {
+    // --- download section: use latest release ---
+    const latest = releases[0];
+    if (latest) {
+      if (latest.tag_name) document.getElementById('apkVersion').textContent = 'Version ' + latest.tag_name;
+      const asset = latest.assets && latest.assets.find(a => a.name.endsWith('.apk'));
+      if (asset) {
+        document.getElementById('apkSize').textContent = (asset.size / 1048576).toFixed(1) + ' MB';
+        const count = asset.download_count;
+        const rounded = Math.floor(count / 10) * 10;
+        document.getElementById('apkDownloads').textContent = (rounded > 0 ? rounded + '+' : count) + ' downloads';
+      }
     }
+
+    // --- changelog ---
+    const timeline = document.getElementById('changelogTimeline');
+    if (!timeline || !releases.length) return;
+    timeline.innerHTML = releases.map((r, i) => {
+      const date = new Date(r.published_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+      const lines = (r.body || '').split('\n').map(l => l.replace(/^[-*]\s*/, '').trim()).filter(Boolean);
+      const items = lines.length ? lines.map(l => `<li>${l}</li>`).join('') : `<li>See release notes on GitHub</li>`;
+      return `<div class="cl-item">
+        <div class="cl-dot${i === 0 ? ' latest' : ''}"></div>
+        <div class="cl-card">
+          <div class="cl-header">
+            <span class="cl-version">${r.tag_name}</span>
+            <span class="cl-date">${date}</span>
+          </div>
+          <ul class="cl-list">${items}</ul>
+        </div>
+      </div>`;
+    }).join('');
   })
   .catch(() => { document.getElementById('apkSize').textContent = '~18 MB'; });
 const feedbackForm = document.querySelector('.feedback-form');
