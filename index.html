@@ -155,6 +155,10 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span id="apkSize">— MB</span>
           </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span id="apkDownloads">— downloads</span>
+          </div>
         </div>
         <div class="download-btns">
           <a href="https://github.com/SibamDash/MadMoney/releases/download/v1.1.0/app-release.apk" class="btn btn-primary btn-large" id="downloadBtn">
@@ -243,7 +247,10 @@
       <h2>Share your thoughts.</h2>
       <p>Found a bug? Have a suggestion? We'd love to hear from you.</p>
     </div>
-    <form class="feedback-form fade-up" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="feedback-form fade-up" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="17132c62-3985-4c9d-bc1f-4900ee107089" />
+      <input type="hidden" name="subject" value="New MadMoney Feedback" />
+      <input type="checkbox" name="botcheck" style="display:none" />
       <div class="feedback-row">
         <input type="text" name="name" placeholder="Your name" required />
         <input type="email" name="email" placeholder="Your email (optional)" />
