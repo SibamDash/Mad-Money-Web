@@ -10,7 +10,16 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Feedback form
+// Live APK size from GitHub
+fetch('https://api.github.com/repos/SibamDash/MadMoney/releases/latest')
+  .then(r => r.json())
+  .then(data => {
+    const asset = data.assets && data.assets.find(a => a.name.endsWith('.apk'));
+    if (asset) {
+      document.getElementById('apkSize').textContent = (asset.size / 1048576).toFixed(1) + ' MB';
+    }
+  })
+  .catch(() => { document.getElementById('apkSize').textContent = '~18 MB'; });
 const feedbackForm = document.querySelector('.feedback-form');
 if (feedbackForm) {
   feedbackForm.addEventListener('submit', async e => {
