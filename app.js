@@ -30,6 +30,16 @@ fetch('https://api.github.com/repos/SibamDash/MadMoney/releases')
     // --- changelog ---
     const timeline = document.getElementById('changelogTimeline');
     if (!timeline || !releases.length) return;
+    const staticEntry = `<div class="cl-item">
+        <div class="cl-dot"></div>
+        <div class="cl-card">
+          <div class="cl-header">
+            <span class="cl-version">v1.0.0</span>
+            <span class="cl-date">Apr 2026</span>
+          </div>
+          <ul class="cl-list"><li>Initial release</li></ul>
+        </div>
+      </div>`;
     timeline.innerHTML = releases.map((r, i) => {
       const date = new Date(r.published_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
       const lines = (r.body || '').split('\n').map(l => l.replace(/^[-*]\s*/, '').trim()).filter(Boolean);
@@ -44,7 +54,7 @@ fetch('https://api.github.com/repos/SibamDash/MadMoney/releases')
           <ul class="cl-list">${items}</ul>
         </div>
       </div>`;
-    }).join('');
+    }).join('') + staticEntry;
   })
   .catch(() => { document.getElementById('apkSize').textContent = '~18 MB'; });
 const feedbackForm = document.querySelector('.feedback-form');
