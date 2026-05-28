@@ -100,12 +100,15 @@ function togglePrevVersions() {
       .then(releases => {
         const list = document.getElementById('prevVersionsList');
         const older = releases.slice(1).filter(r => r.assets && r.assets.find(a => a.name.endsWith('.apk')));
-        if (!older.length) { list.innerHTML = '<span style="color:var(--text-muted);font-size:13px;padding:6px 10px;">No previous versions</span>'; return; }
-        list.innerHTML = older.map(r => {
-          const apk = r.assets.find(a => a.name.endsWith('.apk'));
-          return `<a href="${apk.browser_download_url}" class="btn btn-ghost" style="justify-content:space-between;padding:8px 12px;font-size:13px;border-radius:8px;">
-            <span>${r.tag_name}</span>
-            <span style="color:var(--text-muted);font-size:11px;">${(apk.size/1048576).toFixed(1)} MB</span>
+        const v1Entry = { tag_name: 'v1.0.0', browser_download_url: 'https://github.com/SibamDash/MadMoney/releases/download/v1.0.0/MadMoney_v1.0.0.apk', size: null };
+        const allPrev = older.map(r => { const apk = r.assets.find(a => a.name.endsWith('.apk')); return { tag_name: r.tag_name, browser_download_url: apk.browser_download_url, size: apk.size }; });
+        // Add v1.0.0 only if not already in API results
+        if (!allPrev.find(r => r.tag_name === 'v1.0.0')) allPrev.push(v1Entry);
+        if (!allPrev.length) { list.innerHTML = '<span style="color:var(--text-muted);font-size:13px;padding:6px 10px;">No previous versions</span>'; return; }
+        list.innerHTML = allPrev.map(r => {
+          const sizeLabel = r.size ? `<span style="color:var(--text-muted);font-size:11px;">${(r.size/1048576).toFixed(1)} MB</span>` : '';
+          return `<a href="${r.browser_download_url}" class="btn btn-ghost btn-large" style="justify-content:space-between;width:100%;">
+            <span>${r.tag_name}</span>${sizeLabel}
           </a>`;
         }).join('');
       });
