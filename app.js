@@ -14,16 +14,19 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 fetch('https://api.github.com/repos/SibamDash/MadMoney/releases')
   .then(r => r.json())
   .then(releases => {
-    // --- download section: use latest release ---
+    // --- download section: sum downloads across all releases ---
     const latest = releases[0];
     if (latest) {
       if (latest.tag_name) document.getElementById('apkVersion').textContent = 'Version ' + latest.tag_name;
-      const asset = latest.assets && latest.assets.find(a => a.name.endsWith('.apk'));
-      if (asset) {
-        document.getElementById('apkSize').textContent = (asset.size / 1048576).toFixed(1) + ' MB';
-        const count = asset.download_count;
-        const rounded = Math.floor(count / 10) * 10;
-        document.getElementById('apkDownloads').textContent = (rounded > 0 ? rounded + '+' : count) + ' downloads';
+      const latestAsset = latest.assets && latest.assets.find(a => a.name.endsWith('.apk'));
+      if (latestAsset) {
+        document.getElementById('apkSize').textContent = (latestAsset.size / 1048576).toFixed(1) + ' MB';
+        const totalCount = releases.reduce((sum, r) => {
+          const apk = r.assets && r.assets.find(a => a.name.endsWith('.apk'));
+          return sum + (apk ? apk.download_count : 0);
+        }, 0);
+        const rounded = Math.floor(totalCount / 10) * 10;
+        document.getElementById('apkDownloads').textContent = (rounded > 0 ? rounded + '+' : totalCount) + ' downloads';
       }
     }
 
