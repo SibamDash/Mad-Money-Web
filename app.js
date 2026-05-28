@@ -45,7 +45,7 @@ fetch('https://api.github.com/repos/SibamDash/MadMoney/releases')
       </div>`;
     timeline.innerHTML = releases.map((r, i) => {
       const date = new Date(r.published_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-      const lines = (r.body || '').split('\n').map(l => l.replace(/^[-*]\s*/, '').trim()).filter(Boolean);
+      const lines = (r.body || '').split('\n').map(l => l.replace(/^[•\-*]\s*/, '').trim()).filter(Boolean);
       const items = lines.length ? lines.map(l => `<li>${l}</li>`).join('') : `<li>See release notes on GitHub</li>`;
       return `<div class="cl-item">
         <div class="cl-dot${i === 0 ? ' latest' : ''}"></div>
