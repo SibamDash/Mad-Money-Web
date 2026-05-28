@@ -149,7 +149,7 @@
           </div>
           <div class="meta-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            Android 8+
+            Android 5.0+
           </div>
           <div class="meta-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -160,11 +160,22 @@
             <span id="apkDownloads">— downloads</span>
           </div>
         </div>
-        <div class="download-btns">
-          <a href="https://github.com/SibamDash/MadMoney/releases/download/v1.2.0/MadMoney_v1.2.0.apk" class="btn btn-primary btn-large" id="downloadBtn">
+        <div class="download-btns" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+          <a href="https://github.com/SibamDash/MadMoney/releases/download/v1.3.0/MadMoney_v1.3.0.apk" class="btn btn-primary btn-large" id="downloadBtn" style="justify-content:center;flex:1;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download APK
           </a>
+          <div class="prev-versions-wrap" style="position:relative;flex:1;">
+            <button class="btn btn-ghost btn-large" id="prevVersionsBtn" onclick="togglePrevVersions()" style="width:100%;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              Previous Versions
+            </button>
+            <div id="prevVersionsDropdown" style="display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px;z-index:100;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+              <div id="prevVersionsList" style="display:flex;flex-direction:column;gap:4px;">
+                <span style="color:var(--text-muted);font-size:13px;padding:6px 10px;">Loading…</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="install-steps">

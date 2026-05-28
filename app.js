@@ -86,3 +86,32 @@ if (feedbackForm) {
     btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Feedback';
   });
 }
+
+// Previous versions dropdown
+let prevVersionsLoaded = false;
+function togglePrevVersions() {
+  const dropdown = document.getElementById('prevVersionsDropdown');
+  const open = dropdown.style.display === 'block';
+  dropdown.style.display = open ? 'none' : 'block';
+  if (!open && !prevVersionsLoaded) {
+    prevVersionsLoaded = true;
+    fetch('https://api.github.com/repos/SibamDash/MadMoney/releases')
+      .then(r => r.json())
+      .then(releases => {
+        const list = document.getElementById('prevVersionsList');
+        const older = releases.slice(1).filter(r => r.assets && r.assets.find(a => a.name.endsWith('.apk')));
+        if (!older.length) { list.innerHTML = '<span style="color:var(--text-muted);font-size:13px;padding:6px 10px;">No previous versions</span>'; return; }
+        list.innerHTML = older.map(r => {
+          const apk = r.assets.find(a => a.name.endsWith('.apk'));
+          return `<a href="${apk.browser_download_url}" class="btn btn-ghost" style="justify-content:space-between;padding:8px 12px;font-size:13px;border-radius:8px;">
+            <span>${r.tag_name}</span>
+            <span style="color:var(--text-muted);font-size:11px;">${(apk.size/1048576).toFixed(1)} MB</span>
+          </a>`;
+        }).join('');
+      });
+  }
+}
+document.addEventListener('click', e => {
+  const wrap = document.querySelector('.prev-versions-wrap');
+  if (wrap && !wrap.contains(e.target)) document.getElementById('prevVersionsDropdown').style.display = 'none';
+});
